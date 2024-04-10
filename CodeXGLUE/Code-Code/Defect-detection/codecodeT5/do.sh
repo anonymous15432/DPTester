@@ -1,0 +1,17 @@
+python run1.py \
+    --output_dir=./saved_models \
+    --model_type=T5 \
+    --tokenizer_name=Salesforce/codet5p-110m-embedding \
+    --model_name_or_path=Salesforce/codet5p-110m-embedding \
+    --do_train \
+    --train_data_file=../dataset/train.jsonl \
+    --eval_data_file=../dataset/valid.jsonl \
+    --test_data_file=../dataset/test.jsonl \
+    --epoch 20 \
+    --block_size 400 \
+    --train_batch_size 128 \
+    --eval_batch_size 128 \
+    --learning_rate 2e-5 \
+    --max_grad_norm 1.0 \
+    --evaluate_during_training \
+    --seed 123456  2>&1 | tee train.log
